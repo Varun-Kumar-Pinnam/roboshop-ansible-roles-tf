@@ -1,0 +1,9 @@
+- name: Greetings
+  #ansible.builtin.import_role:
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: include_import.yaml
+  when: os == "redhat"
+  loop:
+   - varun
+   - advi

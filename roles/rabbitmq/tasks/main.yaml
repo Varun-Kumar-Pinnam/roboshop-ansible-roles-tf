@@ -1,0 +1,26 @@
+   - name: copy {{ component }} repo file
+     ansible.builtin.copy:
+      src: rabbitmq.repo
+      dest: /etc/yum.repos.d/rabbitmq.repo
+   
+   - name: Installing {{ component }}
+     ansible.builtin.dnf:
+      name: rabbitmq-server
+      state: present
+
+   - name: start user
+     ansible.builtin.service:
+      name: rabbitmq-server
+      state: started
+      enabled: yes
+
+   - name: add rabbitmq user and give permissions
+     community.rabbitmq.rabbitmq_user:
+      user: roboshop 
+      password: roboshop123
+      permissions:
+      - vhost: /
+        configure_priv: .*
+        read_priv: .*
+        write_priv: .*
+        state: present

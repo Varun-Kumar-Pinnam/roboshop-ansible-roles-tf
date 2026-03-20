@@ -1,0 +1,24 @@
+- name: "{{ component }} setup"
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: redis_setup.yaml
+
+ # Allowing remote connections
+- name: Allowing remote connections
+  ansible.builtin.replace:
+    path: /etc/redis/redis.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+
+- name: Replace a localhost entry with our own
+  ansible.builtin.lineinfile:
+    path: /etc/redis/redis.conf
+    regexp: '^protected-mode'
+    line: protected-mode no
+    backrefs: yes
+
+- name: start {{ component }} setup
+  ansible.builtin.service:
+    name: "{{ component }}"
+    state: restarted
+    enabled: yes

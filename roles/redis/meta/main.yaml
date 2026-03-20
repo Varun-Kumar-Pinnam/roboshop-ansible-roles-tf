@@ -1,0 +1,3 @@
+# dependencies:
+# # redis dependent on common
+# - role: common

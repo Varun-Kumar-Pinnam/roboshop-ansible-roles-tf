@@ -1,0 +1,14 @@
+- name: "configure {{ component }} server"
+  hosts: "{{ component }}"
+  become: yes
+  roles:
+  - "{{ component }}"
+
+# - name: "configure {{ component }} server"
+#   hosts: "{{ component }}"
+#   become: yes
+#   tasks:
+#     name: configure components
+#   include_role:
+#     name: "{{ item }}"
+#   loop: "{{ component }}"
