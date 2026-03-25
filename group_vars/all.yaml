@@ -9,3 +9,4 @@ MYSQL_HOST: mysql-{{ env }}.advidevops.online
 SHIPPING_HOST: shipping-{{ env }}.advidevops.online
 RABBITMQ_HOST: rabbitmq-{{ env }}.advidevops.online
 PAYMENT_HOST: payment-{{ env }}.advidevops.online
+app_version : v3
