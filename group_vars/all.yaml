@@ -1,12 +1,15 @@
 ansible_user: ec2-user
 ansible_password: DevOps321
+
 MONGODB_HOST: mongodb-{{ env }}.advidevops.online
-CATALOGUE_HOST: catalogue-{{ env }}.advidevops.online
 REDIS_HOST: redis-{{ env }}.advidevops.online
-USER_HOST: user-{{ env }}.advidevops.online
-CART_HOST: cart-{{ env }}.advidevops.online
 MYSQL_HOST: mysql-{{ env }}.advidevops.online
-SHIPPING_HOST: shipping-{{ env }}.advidevops.online
 RABBITMQ_HOST: rabbitmq-{{ env }}.advidevops.online
-PAYMENT_HOST: payment-{{ env }}.advidevops.online
+
+PAYMENT_HOST: payment.backend-alb-{{ env }}.advidevops.online
+CATALOGUE_HOST: catalogue.backend-alb-{{ env }}.advidevops.online
+SHIPPING_HOST: shipping.backend-alb-{{ env }}.advidevops.online
+USER_HOST: user.backend-alb-{{ env }}.advidevops.online
+CART_HOST: cart.backend-alb-{{ env }}.advidevops.online
+
 app_version : v3
